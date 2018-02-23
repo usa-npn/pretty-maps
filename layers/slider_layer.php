@@ -93,7 +93,7 @@ class SliderLayer extends BasicLayer{
         imagedestroy($legend);
 
 
-        imagepng ($im, $this->output_path, 9);
+        imagepng ($im, SLIDER_OUTPUT_PATH . $this->output_path, 9);
 
         imagedestroy($im);
     }               

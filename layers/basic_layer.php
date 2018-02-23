@@ -59,7 +59,7 @@ class BasicLayer extends AbstractLayer{
 
         $this->drawUSGSLogo($im);
 
-        imagepng ($im, $this->output_path, 9);
+        imagepng ($im, OUTPUT_PATH . $this->output_path, 9);
 
         //This isn't actually used. Started to implement it, didn't need it
         //Thought it might be useful later.
