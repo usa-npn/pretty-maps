@@ -13,17 +13,28 @@ foreach (scandir(dirname(__FILE__) . PATH_SEPERATOR . "layers") as $filename) {
 }
 
 
+
 class MapMaker{
+    
+        private $run_once;
 	
+        public function __construct($run_once=false){
+            $this->run_once = $run_once;
+        }
+        
+        public function shouldRunOnce(){
+            return $this->run_once;
+        }
 	
-	public function run(){
+	public function runDaily(){
             /*
              * SpringIndexAnomalyLayer must sit in this array before SliderLayer.
              * SliderLayer depends on SpringIndexAnomalyLayer producing it's overlay for it.
              */
+            
             $arr = array(
                 new SpringIndexLayer(), 
-                new SpringIndexAnomalyLayer(),
+                new SpringIndexLeafAnomalyLayer(),
                 new SliderLayer(),
                 new Agdd32Layer(),
                 new AgddAnomaly32Layer(),
@@ -33,6 +44,7 @@ class MapMaker{
                  * indicates if it's for current day or 6 day forecast. Since
                  * we want both, we need to create two instances of each layer.
                  */
+            
                 new EmeraldAshBorerLayer(),
                 new EmeraldAshBorerLayer(true),                
                 new AppleMaggotLayer(),
@@ -45,14 +57,73 @@ class MapMaker{
                 new WinterMothLayer(true)
 
             );
+
             
-            foreach($arr as $layer){
-		$layer->downloadBaseImage();
-                $layer->buildImage();
-            }
+            
+            $this->generateMaps($arr);
             
             
 	}
+        
+        public function runWeekly(){
+            $arr = array(
+                new SpringIndexLeafAnomalyLayer(new DateTime()),
+                new SpringIndexBloomAnomalyLayer(new DateTime()),
+                new AgddAnomaly32Layer(new DateTime())
+            );
+            
+            $this->generateMaps($arr);
+        }
+        
+        public function runOnce(){
+            $arr = array(
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-01-01')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-01')),
+                new AgddAnomaly32Layer(new DateTime('2018-01-01')),
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-01-08')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-08')),
+                new AgddAnomaly32Layer(new DateTime('2018-01-08')),
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-01-15')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-15')),
+                new AgddAnomaly32Layer(new DateTime('2018-01-15')),            
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-01-22')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-22')),
+                new AgddAnomaly32Layer(new DateTime('2018-01-22')),
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-01-29')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-29')),
+                new AgddAnomaly32Layer(new DateTime('2018-01-29')),
+
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-02-05')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-05')),
+                new AgddAnomaly32Layer(new DateTime('2018-02-05')),
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-02-12')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-12')),
+                new AgddAnomaly32Layer(new DateTime('2018-02-12')),
+
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-02-19')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-19')),
+                new AgddAnomaly32Layer(new DateTime('2018-02-19')),
+                
+                new SpringIndexLeafAnomalyLayer(new DateTime('2018-02-26')),
+                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-26')),
+                new AgddAnomaly32Layer(new DateTime('2018-02-26'))             
+                
+            );
+            
+            $this->generateMaps($arr);
+        }
+        
+        private function generateMaps($arr){
+            foreach($arr as $layer){
+		$layer->downloadBaseImage();
+                $layer->buildImage();
+            }            
+        }
 }
 
 
