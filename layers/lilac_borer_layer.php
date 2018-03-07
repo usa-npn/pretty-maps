@@ -10,10 +10,10 @@ class LilacBorerLayer extends PestLayer{
     public function __construct($long_forecast=false){
         $title = "Lilac Borer Forecast";
         
-        $legend_width = 307;
-        $legend_height= 88;
+        $legend_width = 342;
+        $legend_height= 91;
         
-        $legend_x_start = 1180;
+        $legend_x_start = 1120;
         $legend_y_start = 675;
         
         $output_path = "lilac-borer";        

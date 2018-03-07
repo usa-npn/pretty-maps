@@ -10,8 +10,8 @@ class EmeraldAshBorerLayer extends PestLayer{
     public function __construct($long_forecast=false){
         $title = "Emerald Ash Borer Forecast";
         
-        $legend_width = 322;
-        $legend_height= 93;
+        $legend_width = 341;
+        $legend_height= 92;
         
         $legend_x_start = 1155;
         $legend_y_start = 675;

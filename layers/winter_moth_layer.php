@@ -10,10 +10,10 @@ class WinterMothLayer extends PestLayer{
     public function __construct($long_forecast=false){
         $title = "Winter Moth Forecast";
         
-        $legend_width = 278;
-        $legend_height= 68;
+        $legend_width = 309;
+        $legend_height= 72;
         
-        $legend_x_start = 1200;
+        $legend_x_start = 1175;
         $legend_y_start = 675;
         
         $output_path = "winter-moth";        

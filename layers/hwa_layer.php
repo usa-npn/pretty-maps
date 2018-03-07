@@ -10,10 +10,10 @@ class HwaLayer extends PestLayer{
     public function __construct($long_forecast=false){
         $title = "Hemlock Woolly Adelgid Forecast";
         
-        $legend_width = 410;
-        $legend_height= 88;
+        $legend_width = 455;
+        $legend_height= 91;
         
-        $legend_x_start = 1085;
+        $legend_x_start = 1035;
         $legend_y_start = 675;
         
         $output_path = "hwa";        

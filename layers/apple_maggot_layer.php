@@ -10,8 +10,8 @@ class AppleMaggotLayer extends PestLayer{
     public function __construct($long_forecast=false){
         $title = "Apple Maggot Forecast";
         
-        $legend_width = 318;
-        $legend_height= 91;
+        $legend_width = 340;
+        $legend_height= 90;
         
         $legend_x_start = 1155;
         $legend_y_start = 675;
