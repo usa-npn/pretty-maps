@@ -33,7 +33,8 @@ class MapMaker{
              */
             
             $arr = array(
-                new SpringIndexLayer(), 
+                new SpringIndexLeafLayer(),
+                new SpringIndexBloomLayer(),
                 new SpringIndexLeafAnomalyLayer(),
                 new SpringIndexBloomAnomalyLayer(),
                 new SliderLayer(),

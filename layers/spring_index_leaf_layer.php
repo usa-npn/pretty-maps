@@ -2,7 +2,7 @@
 
 require_once('basic_layer.php');
 
-class SpringIndexLayer extends BasicLayer{
+class SpringIndexLeafLayer extends BasicLayer{
 	
 	
 	public function __construct(){
