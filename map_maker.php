@@ -36,8 +36,8 @@ class MapMaker{
                 new SpringIndexLeafLayer(),
                 new SpringIndexBloomLayer(),
                 new SpringIndexLeafAnomalyLayer(),
-                new SpringIndexBloomAnomalyLayer(),
                 new SliderLayer(),
+		new SpringIndexBloomAnomalyLayer(),
                 new Agdd32Layer(),
                 new AgddAnomaly32Layer(),
                 
