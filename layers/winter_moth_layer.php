@@ -21,7 +21,7 @@ class WinterMothLayer extends PestLayer{
 
         
         parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $long_forecast);
-        $this->subtitle = "Treatment method: Spray caterpillars";
+        $this->subtitle = "Window for Managing Caterpillars";
         $this->legend_path = $this->base_legend_path . "legend-winter-moth" . $this->extension;
         $this->overlay_path = $this->base_overlay_path . "overlay-winter-moth.png";   
  
