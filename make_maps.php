@@ -5,6 +5,10 @@ require_once('map_maker.php');
 
 $maker = new MapMaker(false);
 
+//$maker->runSmoothAnimations();
+
+// $maker->runYearlySix();
+
 $maker->runDaily();
 
 if(date('D', time()) === 'Mon'){
