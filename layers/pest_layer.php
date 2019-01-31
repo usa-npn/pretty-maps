@@ -114,7 +114,7 @@ class PestLayer extends BasicLayer{
     protected function drawUSGSLogo($im){
 	$usgs_logo = imagecreatefrompng($this->usgs_logo_path);
 	$usgs_logo_x_offset = 1325;
-	$usgs_logo_y_offset = 600;
+	$usgs_logo_y_offset = 550;
 	$dst_usgs_logo_width = 150;
 	$dst_usgs_logo_height = 55;
 	$src_usgs_logo_width = 800;
@@ -124,7 +124,7 @@ class PestLayer extends BasicLayer{
 	imagedestroy($usgs_logo);
 
 	$funding_x_start = 1325;
-	$funding_y_start = 595;
+	$funding_y_start = 545;
 	$funding_font_size = 9;
 	imagettftext($im, $funding_font_size, 0, $funding_x_start, $funding_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->usgs_string);        
     }

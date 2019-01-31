@@ -47,24 +47,31 @@ class MapMaker{
                  * we want both, we need to create two instances of each layer.
                  */
             
-                new EmeraldAshBorerLayer(),
-                new EmeraldAshBorerLayer(true),                
+                            
                 new AppleMaggotLayer(),
                 new AppleMaggotLayer(true),
-                new HwaLayer(),
-                new HwaLayer(true),
-                new LilacBorerLayer(),
-                new LilacBorerLayer(true),
-                new WinterMothLayer(),
-                new WinterMothLayer(true),
-
-                new GypsyMothLayer(),
-                new GypsyMothLayer(true),
                 new AsianLonghornedBeetleLayer(),
                 new AsianLonghornedBeetleLayer(true),
-                //new EasternTentCaterpillarLayer(),
-                //new EasternTentCaterpillarLayer(true)
-
+                new BagwormLayer(),
+                new BagwormLayer(true),
+                new BronzeBirchBorerLayer(),
+                new BronzeBirchBorerLayer(true),
+                new EasternTentCaterpillarLayer(),
+                new EasternTentCaterpillarLayer(true),
+                new EmeraldAshBorerLayer(),
+                new EmeraldAshBorerLayer(true), 
+                new GypsyMothLayer(),
+                new GypsyMothLayer(true),   
+                new HwaLayer(),
+                new HwaLayer(true),
+                new MagnoliaScaleLayer(),
+                new MagnoliaScaleLayer(true),
+                new LilacBorerLayer(),
+                new LilacBorerLayer(true),
+                new PineNeedleScaleLayer(),
+                new PineNeedleScaleLayer(true),
+                new WinterMothLayer(),
+                new WinterMothLayer(true)
             );
 
             
