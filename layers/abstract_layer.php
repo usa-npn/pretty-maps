@@ -80,7 +80,7 @@ abstract class AbstractLayer{
                 $this->usgs_string = "Major funding provided by"; 
                 $this->generated_on_string = "Generated on " . date('F j, Y');
                 
-                $this->npn_logo_path  = $this->base_image_path . "assets/npn-logo" . $this->extension;
+                $this->npn_logo_path  = $this->base_image_path . "assets/npn-logo-2019" . $this->extension;
                 $this->usgs_logo_path = $this->base_image_path . "assets/usgs-logo" . $this->extension;
                 $this->background_path  = $this->base_image_path . "assets/background" . $this->extension;
             
