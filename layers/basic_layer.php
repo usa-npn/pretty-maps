@@ -91,9 +91,9 @@ class BasicLayer extends AbstractLayer{
 	$npn_logo_x_offset = 25;
     $npn_logo_y_offset = 600;
     
-    $dst_npn_logo_width = 324;//325;
+    $dst_npn_logo_width = 322;//325;
 	$dst_npn_logo_height = 100;
-	$src_npn_logo_width = 324;//3000;
+	$src_npn_logo_width = 322;//3000;
     $src_npn_logo_height = 100;//914;
 	// $dst_npn_logo_width = 325;
 	// $dst_npn_logo_height = 100;
