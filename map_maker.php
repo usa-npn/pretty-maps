@@ -16,15 +16,40 @@ foreach (scandir(dirname(__FILE__) . PATH_SEPERATOR . "layers") as $filename) {
 
 class MapMaker{
     
-        private $run_once;
-	
-        public function __construct($run_once=false){
-            $this->run_once = $run_once;
+    private $run_once;
+
+    public function __construct($run_once=false){
+        $this->run_once = $run_once;
+    }
+    
+    public function shouldRunOnce(){
+        return $this->run_once;
+    }
+
+    /**
+     * Generate an array of string dates between 2 dates
+     *
+     * @param string $start Start date
+     * @param string $end End date
+     * @param string $format Output format (Default: Y-m-d)
+     *
+     * @return array
+     */
+    function getDatesFromRange($start, $end, $format = 'Y-m-d') {
+        $array = array();
+        $interval = new DateInterval('P1D');
+
+        $realEnd = new DateTime($end);
+        $realEnd->add($interval);
+
+        $period = new DatePeriod(new DateTime($start), $interval, $realEnd);
+
+        foreach($period as $date) { 
+            $array[] = $date->format($format); 
         }
-        
-        public function shouldRunOnce(){
-            return $this->run_once;
-        }
+
+        return $array;
+    }
 	
 	public function runDaily(){
             /*
@@ -134,198 +159,20 @@ class MapMaker{
             $this->generateMaps($arr);
         }
 
-        public function runSmoothAnimations() {
-            $arr = array(
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-29')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-30')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-01-31')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-02-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-29')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-30')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-03-31')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-29')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-04-30')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-29')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-30')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-05-31')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-06')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-07')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-08')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-09')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-10')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-11')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-12')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-13')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-14')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-15')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-16')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-17')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-18')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-19')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-20')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-21')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-22')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-23')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-24')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-25')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-26')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-27')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-28')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-29')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-06-30')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-01')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-02')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-03')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-04')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-05')),
-                new SpringIndexBloomAnomalyLayer(new DateTime('2018-07-06'))           
-            );
-            
-            $this->generateMaps($arr);
+        public function runDailySixAnimation() {
+            $layers = [];
+            $startDate = date("Y-m-d", strtotime("3 days ago"));
+            $endDate = date("Y-m-d", strtotime("+6 day"));
+            $sixDates = $this->getDatesFromRange('2019-01-01', '2019-03-01');
+            // $sixDates = $this->getDatesFromRange($startDate, $endDate);
+            foreach($sixDates as $sixDate) {
+                // array_push($layers, new SpringIndexLeafLayer(new DateTime($sixDate)));
+                array_push($layers, new SpringIndexLeafAnomalyLayer(new DateTime($sixDate)));
+                array_push($layers, new SpringIndexBloomAnomalyLayer(new DateTime($sixDate)));
+            }
+            $this->generateMaps($layers);
+            exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'six-leaf-index-anomaly-2019*.png ' . OUTPUT_PATH . 'six-leaf-index-daily-anomaly.gif');
+            exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'six-bloom-index-anomaly-2019*.png ' . OUTPUT_PATH . 'six-bloom-index-daily-anomaly.gif');
         }
 
         public function runYearlySix(){
@@ -374,7 +221,7 @@ class MapMaker{
         
         private function generateMaps($arr){
             foreach($arr as $layer){
-		$layer->downloadBaseImage();
+		        $layer->downloadBaseImage();
                 $layer->buildImage();
             }            
         }
