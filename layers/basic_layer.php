@@ -8,8 +8,8 @@ require_once('abstract_layer.php');
  */
 class BasicLayer extends AbstractLayer{
 
-	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0){		
-		parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url);
+	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on NOAA NCEP RTMA and NDFD Products", $provisional = false){		
+		parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional);
 	}
 
         
@@ -41,7 +41,8 @@ class BasicLayer extends AbstractLayer{
         //for the pest layer.
         $this->drawNPNLogo($im);
         $this->drawTitleText($im);
-        $this->drawSubTitleText($im);        
+        $this->drawSubTitleText($im);  
+        // $this->drawProvisionalText($im);
         $this->drawGeneratedDateText($im);
         $this->drawNPNURL($im);
         
@@ -135,6 +136,17 @@ class BasicLayer extends AbstractLayer{
     protected function drawSubTitleText($im) {
         return;
     }
+
+    // protected function drawProvisionalText($im) {
+    //     if($this->provisional) {
+    //         $title_x_start = 10;
+    //         $title_y_start = 780;
+    //         $subtitle_font_size = 12;
+    //         imagettftext($im, $subtitle_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, "Generated on " . date_format(new DateTime(), "Y-m-d") . " (results provisional)");    
+    //     } else {
+    //         return;
+    //     }
+    // }
     
     protected function drawGeneratedDateText($im){
         return;

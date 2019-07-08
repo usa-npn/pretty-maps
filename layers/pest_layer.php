@@ -12,9 +12,9 @@ class PestLayer extends BasicLayer{
 	
 	
 	
-    public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $long_forecast, $width=1500, $height=800, $x_shift=53, $y_shift=7){
+    public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $long_forecast, $width=1500, $height=800, $x_shift=53, $y_shift=7, $background_path="assets/background", $attr_string="Based on NOAA NCEP RTMA and NDFD Products", $provisional = false){
                     
-            parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width, $height, $x_shift, $y_shift);
+            parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width, $height, $x_shift, $y_shift, $background_path, $attr_string, $provisional);
             
             /*
              * These classes, defined here, handle the special fact that

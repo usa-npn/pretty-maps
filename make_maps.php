@@ -18,3 +18,5 @@ if(date('D', time()) === 'Mon'){
 if($maker->shouldRunOnce()){
     $maker->runOnce();
 }
+
+$maker->runDailyBuffelgrassAnimation();

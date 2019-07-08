@@ -159,6 +159,19 @@ class MapMaker{
             $this->generateMaps($arr);
         }
 
+        public function runDailyBuffelgrassAnimation() {
+            $layers = [];
+            $startDate = date("Y-m-d", strtotime("6 months ago"));
+            $endDate = date("Y-m-d", strtotime("1 day ago"));
+            $bgDates = $this->getDatesFromRange('2019-01-01', $endDate);
+            // $bgDates = $this->getDatesFromRange($startDate, $endDate);
+            foreach($bgDates as $bgDate) {
+                array_push($layers, new BuffelgrassLayer(new DateTime($bgDate)));
+            }
+            $this->generateMaps($layers);
+            exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'buffelgrass*.png ' . OUTPUT_PATH . 'buffelgrass.gif');
+        }
+
         public function runDailySixAnimation() {
             $layers = [];
             $startDate = date("Y-m-d", strtotime("3 days ago"));

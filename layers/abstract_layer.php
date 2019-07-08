@@ -28,6 +28,8 @@ abstract class AbstractLayer{
 	protected $title;
         //So far, this subtite only applies for the pest maps.
         protected $subtitle;
+
+        protected $provisional;
 	
 	protected $url_string;
 	protected $attr_string;
@@ -62,7 +64,7 @@ abstract class AbstractLayer{
             return dirname(substr(__FILE__, 0, strrpos(__FILE__, PATH_SEPERATOR))) . PATH_SEPERATOR;
         }
 	
-	public function __construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url){
+	public function __construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional){
             
                 $this->dir = dirname(substr(__FILE__, 0, strrpos(__FILE__, PATH_SEPERATOR)));
                 $this->base_image_path = AbstractLayer::getBaseImagePath();
@@ -72,17 +74,21 @@ abstract class AbstractLayer{
                 
                 $this->title = $title;
                 $this->subtitle = "";
+                $this->provisional = $provisional;
                 
                 $this->font = $this->dir . '/assets/Frutiger-Bold.ttf';
                 
                 $this->url_string = "www.usanpn.org";
-                $this->attr_string = "Based on NOAA NCEP RTMA and NDFD Products";
+                // $this->attr_string = "Based on NOAA NCEP RTMA and NDFD Products";
+                $this->attr_string = $attr_string;
                 $this->usgs_string = "Major funding provided by"; 
                 $this->generated_on_string = "Generated on " . date('F j, Y');
                 
                 $this->npn_logo_path  = $this->base_image_path . "assets/npn-logo-2019" . $this->extension;
                 $this->usgs_logo_path = $this->base_image_path . "assets/usgs-logo" . $this->extension;
-                $this->background_path  = $this->base_image_path . "assets/background" . $this->extension;
+                // $this->background_path  = $this->base_image_path . "assets/arizona-background" . $this->extension;
+                $this->background_path  = $this->base_image_path . $background_path . $this->extension;
+
             
 		$this->width = $width;
 		$this->height = $height;
@@ -112,6 +118,8 @@ abstract class AbstractLayer{
         protected abstract function drawTitleText($im);
         
         protected abstract function drawSubTitleText($im);
+
+        // protected abstract function drawProvisionalText($im);
         
         protected abstract function drawNPNURL($im);
         
