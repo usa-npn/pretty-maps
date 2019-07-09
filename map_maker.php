@@ -162,13 +162,17 @@ class MapMaker{
         public function runDailyBuffelgrassAnimation() {
             $layers = [];
             $startDate = date("Y-m-d", strtotime("6 months ago"));
-            $endDate = date("Y-m-d", strtotime("1 day ago"));
+            $endDate = date("Y-m-d", strtotime("now"));
             $bgDates = $this->getDatesFromRange('2019-01-01', $endDate);
             // $bgDates = $this->getDatesFromRange($startDate, $endDate);
             foreach($bgDates as $bgDate) {
                 array_push($layers, new BuffelgrassLayer(new DateTime($bgDate)));
             }
             $this->generateMaps($layers);
+            $currentDayImage = OUTPUT_PATH . "buffelgrass-" . date("Y-m-d", strtotime("now")) . ".png";
+            $previousWeekImage = OUTPUT_PATH . "buffelgrass-" . date("Y-m-d", strtotime("7 days ago")) . ".png";
+            copy($currentDayImage, OUTPUT_PATH . "current-day-forecast-buffelgrass.png");
+            copy($previousWeekImage, OUTPUT_PATH . "previous-week-forecast-buffelgrass.png");
             exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'buffelgrass*.png ' . OUTPUT_PATH . 'buffelgrass.gif');
         }
 
