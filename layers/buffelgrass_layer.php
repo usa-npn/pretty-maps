@@ -14,7 +14,7 @@ class BuffelgrassLayer extends BasicLayer{
                 $output_path = "buffelgrass-" . $date->format("Y-m-d") . ".png";
             }
 
-            $title = "Bufflegrass Green-up Forecast, " . $date->format("Y-m-d");
+            $title = "Bufflegrass Green-up Forecast, " . $date->format('F j, Y'); #$date->format("Y-m-d");
             
             $legend_width = 420;
             $legend_height=95;
