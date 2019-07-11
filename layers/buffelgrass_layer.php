@@ -22,8 +22,8 @@ class BuffelgrassLayer extends BasicLayer{
             $legend_x_start = 1075;
             $legend_y_start = 570;
             
-            // conus $curl_url = "http://geoserver-dev.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=precipitation:buffelgrass_prism&width=1500&height=800&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";
-            $curl_url = "http://geoserver-dev.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-12781315,3675016,-12139802,4439700&srs=EPSG:3857&layers=precipitation:buffelgrass_prism&width=526&height=626&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";
+            // conus $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=precipitation:buffelgrass_prism&width=1500&height=800&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";
+            $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-12781315,3675016,-12139802,4439700&srs=EPSG:3857&layers=precipitation:buffelgrass_prism&width=526&height=626&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";
 
             parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path,$curl_url, 1500, 800, 537, 115, "assets/arizona-background", "Based on data from PRISM Climate Group, Oregon State University, http://prism.oregonstate.edu, Results provisional", false);
             
