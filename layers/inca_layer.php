@@ -65,7 +65,7 @@ class IncaLayer extends AbstractLayer{
 
         imagepng ($im, OUTPUT_PATH . $this->output_path, 9);
 
-        $imresize = imagescale($im, 350, -1);
+        $imresize = imagescale($im, 350, 186);
 
         imagepng ($imresize, OUTPUT_PATH . $this->thumb_output_path, 9);
 
