@@ -8,9 +8,12 @@ require_once('abstract_layer.php');
  */
 class IncaLayer extends AbstractLayer{
 
-	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on INCA Products", $provisional = false){		
-		parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional);
-	}
+	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $thumb_output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on NASA MODIS MCD12Q2 v006 datasets, results provisional", $provisional = false){		
+        parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional);
+        $this->thumb_output_path = $thumb_output_path;
+    }
+    
+    protected $thumb_output_path;
 
         
     public function buildImage() {
@@ -61,6 +64,10 @@ class IncaLayer extends AbstractLayer{
         $this->drawUSGSLogo($im);
 
         imagepng ($im, OUTPUT_PATH . $this->output_path, 9);
+
+        $imresize = imagescale($im, 350, -1);
+
+        imagepng ($imresize, OUTPUT_PATH . $this->thumb_output_path, 9);
 
         //This isn't actually used. Started to implement it, didn't need it
         //Thought it might be useful later.
