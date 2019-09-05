@@ -159,6 +159,21 @@ class MapMaker{
             $this->generateMaps($arr);
         }
 
+        public function runInca() {
+            $arr = array(
+                new IncaMidgupMedianLayer(),
+                new IncaMidgdownMedianLayer(),
+                new IncaEviAreaMedianLayer(),
+                new IncaMidgupMadLayer(),
+                new IncaMidgdownMadLayer(),
+                new IncaEviAreaMadLayer(),
+                new IncaMidgupTsslopeLayer(),
+                new IncaMidgdownTsslopeLayer(),
+                new IncaEviAreaTsslopeLayer()
+            );
+            $this->generateMaps($arr);
+        }
+
         public function runDailyBuffelgrassAnimation() {
             $layers = [];
             $startDate = date("Y-m-d", strtotime("6 months ago"));

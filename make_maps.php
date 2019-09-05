@@ -20,3 +20,5 @@ if($maker->shouldRunOnce()){
 }
 
 $maker->runDailyBuffelgrassAnimation();
+
+$maker->runInca();
