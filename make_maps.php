@@ -7,18 +7,25 @@ $maker = new MapMaker(false);
 
 // $maker->runYearlySix();
 
-$maker->runDaily();
+// if($maker->shouldRunOnce()){
+//     $maker->runOnce();
+// }
 
-$maker->runDailySixAnimation();
+// only needed to be generated once
+// can uncomment if need to regen
+//$maker->runInca();
 
 if(date('D', time()) === 'Mon'){
-    $maker->runWeekly();
+    $maker->runWeeklyAnomaly();
 }
 
-if($maker->shouldRunOnce()){
-    $maker->runOnce();
-}
+$maker->runDailyAgdd();
+
+$maker->runDailySix();
+
+$maker->runDailySixAnomalyAnimation();
 
 $maker->runDailyBuffelgrassAnimation();
 
-$maker->runInca();
+$maker->runDailyPestMaps();
+
