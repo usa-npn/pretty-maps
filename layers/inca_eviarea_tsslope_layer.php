@@ -12,10 +12,10 @@ class IncaEviAreaTsslopeLayer extends IncaLayer{
                 
             $title = "EVI Area TSslope (2001-2017)";
             
-            $legend_width = 479;
+            $legend_width = 599;
             $legend_height=40;
             
-            $legend_x_start = 1010;
+            $legend_x_start = 900;
             $legend_y_start = 760;
             
             $curl_url = "https://geoserver-dev.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=inca:eviarea_tsslope_nad83_02deg&width=1500&height=800&format=image/png&transparent=true";

@@ -12,7 +12,7 @@ class IncaMidgdownTsslopeLayer extends IncaLayer{
                 
             $title = "Mid Greendown Tsslope (2001-2017)";
             
-            $legend_width = 463;
+            $legend_width = 470;
             $legend_height=40;
             
             $legend_x_start = 1020;

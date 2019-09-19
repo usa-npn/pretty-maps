@@ -12,10 +12,10 @@ class IncaMidgupMadLayer extends IncaLayer{
                 
             $title = "Mid Greenup MAD (2001-2017)";
             
-            $legend_width = 428;
+            $legend_width = 462;
             $legend_height=40;
             
-            $legend_x_start = 1060;
+            $legend_x_start = 1020;
             $legend_y_start = 760;
             
             $curl_url = "https://geoserver-dev.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=inca:midgup_mad_nad83_02deg&width=1500&height=800&format=image/png&transparent=true";
