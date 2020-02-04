@@ -222,7 +222,7 @@ class MapMaker{
     public function runDailySixAnomalyAnimation() {
         $layers = [];
         $startDate = date("Y-m-d", strtotime("3 days ago"));
-        $endDate = date("Y-m-d", strtotime("+6 day"));
+        $endDate = date("Y-m-d", strtotime("now"));
         // $sixDates = $this->getDatesFromRange('2019-01-01', '2019-03-01');
         $sixDates = $this->getDatesFromRange($startDate, $endDate);
         foreach($sixDates as $sixDate) {
