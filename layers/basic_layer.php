@@ -10,7 +10,21 @@ class BasicLayer extends AbstractLayer{
 
 	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on NOAA NCEP RTMA and NDFD Products", $provisional = false){		
 		parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional);
-	}
+    }
+    
+    function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct){ 
+        // creating a cut resource 
+        $cut = imagecreatetruecolor($src_w, $src_h); 
+
+        // copying relevant section from background to the cut resource 
+        imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h); 
+        
+        // copying relevant section from watermark to the cut resource 
+        imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h); 
+        
+        // insert cut resource to destination image 
+        imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct); 
+    } 
 
         
     public function buildImage() {
@@ -29,7 +43,8 @@ class BasicLayer extends AbstractLayer{
         //Copy the overlay data ontop of the map background
         //Note that the last parameter in imagecopymerge controls opacity        
 	$layer = imagecreatefrompng($this->overlay_path);
-        imagecopymerge($im, $layer, $this->x_shift, $this->y_shift, 0, 0, $this->width, $this->height, 65);
+    $this->imagecopymerge_alpha($im, $layer, $this->x_shift, $this->y_shift, 0, 0, $this->width, $this->height, 65);    
+    // imagecopymerge($im, $layer, $this->x_shift, $this->y_shift, 0, 0, $this->width, $this->height, 65);
 	imagedestroy($layer);
         
         //Run any child class implementations of this hook before anything else
