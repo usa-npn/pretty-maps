@@ -197,6 +197,15 @@ class PestLayer extends BasicLayer{
      * image's opacity when copying it. Note that the flags being set and 
      * the order of operations here is very important
      * otherwise the results look bad or don't work at all. 
+     * 
+     * ATTENTION: In certain environments it seems the imagecopyresampled call
+     * below will touch a bug in PHP's image handler and the alpha channel will
+     * not be observed correctly. This is currently working fine on DEV and 
+     * production so not attempting to fix this at the current time.
+     * Probably the only way to fix this, without using some different version 
+     * of PHP, would be to actually resize the base Google Maps image as any
+     * attempt to resize the PNG coming from data.usanpn.org is messing up the
+     * alpha.
      */
     protected function resizePNG($file, $w, $h) {
         list($width, $height) = getimagesize($file);
