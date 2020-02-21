@@ -33,11 +33,11 @@ abstract class AbstractLayer{
 	
 	protected $url_string;
 	protected $attr_string;
-	protected $usgs_string;
         protected $generated_on_string;
 	
 	protected $npn_logo_path;
         protected $usgs_logo_path;
+        protected $ua_logo_path;
 	
 	protected $legend_path;
 	protected $legend_width;
@@ -81,11 +81,11 @@ abstract class AbstractLayer{
                 $this->url_string = "www.usanpn.org";
                 // $this->attr_string = "Based on NOAA NCEP RTMA and NDFD Products";
                 $this->attr_string = $attr_string;
-                $this->usgs_string = "Major funding provided by"; 
                 $this->generated_on_string = "Generated on " . date('F j, Y');
                 
                 $this->npn_logo_path  = $this->base_image_path . "assets/npn-logo-2019" . $this->extension;
                 $this->usgs_logo_path = $this->base_image_path . "assets/usgs-logo" . $this->extension;
+                $this->ua_logo_path = $this->base_image_path . "assets/ua-logo-sm" . $this->extension;
                 // $this->background_path  = $this->base_image_path . "assets/arizona-background" . $this->extension;
                 $this->background_path  = $this->base_image_path . $background_path . $this->extension;
 
@@ -110,6 +110,8 @@ abstract class AbstractLayer{
         public abstract function buildImage();
         
         protected abstract function drawUSGSLogo($im);
+        
+        protected abstract function drawUALogo($im);
         
         protected abstract function drawNPNLogo($im);
         
