@@ -122,11 +122,20 @@ class PestLayer extends BasicLayer{
 	imagecopyresized($im, $usgs_logo, $usgs_logo_x_offset, 
                 $usgs_logo_y_offset, 0, 0, $dst_usgs_logo_width, $dst_usgs_logo_height, $src_usgs_logo_width, $src_usgs_logo_height);        
 	imagedestroy($usgs_logo);
-
-	$funding_x_start = 1325;
-	$funding_y_start = 545;
-	$funding_font_size = 9;
-	imagettftext($im, $funding_font_size, 0, $funding_x_start, $funding_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->usgs_string);        
+      
+    }
+    
+    protected function drawUALogo($im) {
+	$ua_logo = imagecreatefrompng($this->ua_logo_path);
+	$ua_logo_x_offset = 1265;
+	$ua_logo_y_offset = 549;
+	$dst_ua_logo_width = 60;
+	$dst_ua_logo_height = 55;
+	$src_ua_logo_width = 350;
+	$src_ua_logo_height = 322;
+	imagecopyresized($im, $ua_logo, $ua_logo_x_offset, 
+                $ua_logo_y_offset, 0, 0, $dst_ua_logo_width, $dst_ua_logo_height, $src_ua_logo_width, $src_ua_logo_height);        
+	imagedestroy($ua_logo);
     }
     
     /**
@@ -188,6 +197,15 @@ class PestLayer extends BasicLayer{
      * image's opacity when copying it. Note that the flags being set and 
      * the order of operations here is very important
      * otherwise the results look bad or don't work at all. 
+     * 
+     * ATTENTION: In certain environments it seems the imagecopyresampled call
+     * below will touch a bug in PHP's image handler and the alpha channel will
+     * not be observed correctly. This is currently working fine on DEV and 
+     * production so not attempting to fix this at the current time.
+     * Probably the only way to fix this, without using some different version 
+     * of PHP, would be to actually resize the base Google Maps image as any
+     * attempt to resize the PNG coming from data.usanpn.org is messing up the
+     * alpha.
      */
     protected function resizePNG($file, $w, $h) {
         list($width, $height) = getimagesize($file);

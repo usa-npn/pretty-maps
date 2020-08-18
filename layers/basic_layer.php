@@ -8,7 +8,7 @@ require_once('abstract_layer.php');
  */
 class BasicLayer extends AbstractLayer{
 
-	public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on NOAA NCEP RTMA and NDFD Products", $provisional = false){		
+    public function __construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $width=1500, $height=800, $x_shift=37, $y_shift=0, $background_path="assets/background", $attr_string="Based on NOAA NCEP RTMA and NDFD Products", $provisional = false){		
 		parent::__construct($width, $height, $x_shift, $y_shift, $title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, $background_path, $attr_string, $provisional);
     }
     
@@ -18,10 +18,10 @@ class BasicLayer extends AbstractLayer{
 
         // copying relevant section from background to the cut resource 
         imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h); 
-        
+         
         // copying relevant section from watermark to the cut resource 
-        imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h); 
-        
+        imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
+
         // insert cut resource to destination image 
         imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct); 
     } 
@@ -74,6 +74,8 @@ class BasicLayer extends AbstractLayer{
 	imagedestroy($legend);
 
         $this->drawUSGSLogo($im);
+        
+         $this->drawUALogo($im);
 
         imagepng ($im, OUTPUT_PATH . $this->output_path, 9);
 
@@ -96,10 +98,19 @@ class BasicLayer extends AbstractLayer{
                 $usgs_logo_y_offset, 0, 0, $dst_usgs_logo_width, $dst_usgs_logo_height, $src_usgs_logo_width, $src_usgs_logo_height);        
 	imagedestroy($usgs_logo);
 
-	$funding_x_start = 1325;
-	$funding_y_start = 695;
-	$funding_font_size = 9;
-	imagettftext($im, $funding_font_size, 0, $funding_x_start, $funding_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->usgs_string);        
+    }
+    
+    protected function drawUALogo($im){
+	$ua_logo = imagecreatefrompng($this->ua_logo_path);
+	$ua_logo_x_offset = 1265;
+	$ua_logo_y_offset = 699;
+	$dst_ua_logo_width = 60;
+	$dst_ua_logo_height = 55;
+	$src_ua_logo_width = 350;
+	$src_ua_logo_height = 322;
+	imagecopyresized($im, $ua_logo, $ua_logo_x_offset, 
+                $ua_logo_y_offset, 0, 0, $dst_ua_logo_width, $dst_ua_logo_height, $src_ua_logo_width, $src_ua_logo_height);        
+	imagedestroy($ua_logo);
     }
     
     protected function drawNPNLogo($im){
