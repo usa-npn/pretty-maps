@@ -69,6 +69,14 @@ class MapMaker{
             
     }
 
+    public function runDailySixReturnInterval(){
+        $arr = array(
+            new SpringIndexLeafReturnIntervalLayer(),
+            new SpringIndexBloomReturnIntervalLayer()
+        );
+        $this->generateMaps($arr);
+    }
+
     public function runDailyAgdd(){
         
         $arr = array(
