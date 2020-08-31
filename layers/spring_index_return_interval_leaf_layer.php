@@ -7,13 +7,15 @@ class SpringIndexLeafReturnIntervalLayer extends ReturnIntervalLayer{
 	
 	public function __construct($date=null){
             $output_path = null;
+            $title = null;
             if($date == null){
                 $date = new DateTime();
                 $output_path = "six-leaf-return-interval.png";
+                $title = "Spring Index Leaf Return Interval, " . date('F j, Y');
             }else{
-                $output_path = "six-leaf-return-interval-" . $date->format("Y-m-d") . ".png";
+                $output_path = "six-leaf-return-interval-" . $date->format("Y") . ".png";
+                $title = "Spring Index Leaf Return Interval, " . $date->format("Y");
             }
-            $title = "Spring Index Leaf Return Interval, " . date('F j, Y');
             
             $legend_width = 200;
             $legend_height= 368; //101

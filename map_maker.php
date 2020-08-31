@@ -72,7 +72,9 @@ class MapMaker{
     public function runDailySixReturnInterval(){
         $arr = array(
             new SpringIndexLeafReturnIntervalLayer(),
-            new SpringIndexBloomReturnIntervalLayer()
+            new SpringIndexBloomReturnIntervalLayer(),
+            new SpringIndexLeafReturnIntervalLayer(new DateTime()),
+            new SpringIndexBloomReturnIntervalLayer(new DateTime())
         );
         $this->generateMaps($arr);
     }
