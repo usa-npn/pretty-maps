@@ -11,10 +11,10 @@ class SpringIndexLeafReturnIntervalLayer extends ReturnIntervalLayer{
             if($date == null){
                 $date = new DateTime();
                 $output_path = "six-leaf-return-interval.png";
-                $title = "Spring Index Leaf Return Interval, " . date('F j, Y');
+                $title = "Spring Leaf Index Return Interval, " . date('F j, Y');
             }else{
                 $output_path = "six-leaf-return-interval-" . $date->format("Y") . ".png";
-                $title = "Spring Index Leaf Return Interval, " . $date->format("Y");
+                $title = "Spring Leaf Index Return Interval, " . $date->format("Y");
             }
             
             $legend_width = 200;

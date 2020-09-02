@@ -6,7 +6,7 @@ class SpringIndexBloomLayer extends BasicLayer{
 	
 	
 	public function __construct(){
-            $title = "Spring Index Bloom, " . date('F j, Y');
+            $title = "Spring Bloom Index, " . date('F j, Y');
             
             $legend_width = 784;
             $legend_height=40;

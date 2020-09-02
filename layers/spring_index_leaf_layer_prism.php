@@ -6,7 +6,7 @@ class SpringIndexLeafLayerPrism extends BasicLayer{
 	
 	
 	public function __construct($date=null){
-            $title = "Spring Index Leaf, " . $date->format('Y');
+            $title = "Spring Leaf Index, " . $date->format('Y');
             
             $legend_width = 784;
             $legend_height=40;

@@ -13,7 +13,7 @@ class SpringIndexLeafLayer extends BasicLayer{
             }else{
                 $output_path = "six-leaf-index-" . $date->format("Y-m-d") . ".png";
             }
-            $title = "Spring Index Leaf, " . date('F j, Y');
+            $title = "Spring Leaf Index, " . date('F j, Y');
             
             $legend_width = 784;
             $legend_height=40;
