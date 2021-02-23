@@ -106,8 +106,8 @@ class BasicLayer extends AbstractLayer{
 	$ua_logo_y_offset = 699;
 	$dst_ua_logo_width = 60;
 	$dst_ua_logo_height = 55;
-	$src_ua_logo_width = 350;
-	$src_ua_logo_height = 322;
+	$src_ua_logo_width = 60;
+	$src_ua_logo_height = 55;
 	imagecopyresized($im, $ua_logo, $ua_logo_x_offset, 
                 $ua_logo_y_offset, 0, 0, $dst_ua_logo_width, $dst_ua_logo_height, $src_ua_logo_width, $src_ua_logo_height);        
 	imagedestroy($ua_logo);

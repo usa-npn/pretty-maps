@@ -1,5 +1,5 @@
 <?php
-
+// date_default_timezone_set('America/Phoenix');
 require_once('map_maker.php');
 
 
@@ -28,4 +28,9 @@ $maker->runDailySixAnomalyAnimation();
 $maker->runDailyBuffelgrassAnimation();
 
 $maker->runDailyPestMaps();
+
+$maker->runDailyWinterWheat();
+
+//$maker->runDailySixReturnInterval();
+
 

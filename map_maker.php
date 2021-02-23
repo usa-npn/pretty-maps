@@ -142,6 +142,16 @@ class MapMaker{
 
         $this->generateMaps($arr);
     }
+
+    public function runDailyWinterWheat(){
+        
+        $arr = array(
+            new WinterWheatLayer(false),
+            new WinterWheatLayer(true)
+        );
+
+        $this->generateMaps($arr);
+    }
     
     public function runWeeklyAnomaly(){
         $arr = array(
