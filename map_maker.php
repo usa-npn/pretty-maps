@@ -241,7 +241,7 @@ class MapMaker{
 
     public function runDailySixAnomalyAnimation() {
         $layers = [];
-        $startDate = date("Y-m-d", strtotime("3 days ago"));
+        $startDate = date("Y-m-d", strtotime("15 days ago"));
         $endDate = date("Y-m-d", strtotime("now"));
         // $sixDates = $this->getDatesFromRange('2019-01-01', '2019-03-01');
         $sixDates = $this->getDatesFromRange($startDate, $endDate);
