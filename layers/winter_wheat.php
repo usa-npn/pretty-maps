@@ -21,10 +21,10 @@ class WinterWheatLayer extends BasicLayer{
 
         $title = "Winter Wheat Development Forecast, " . $date->format("Y-m-d");
         
-        $legend_width = 308;
+        $legend_width = 286;#308;
         $legend_height= 290;
         
-        $legend_x_start = 1185;
+        $legend_x_start = 1205;
         $legend_y_start = 505;
         
         $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&width=1500&height=800&srs=EPSG:3857&layers=gdd:winter_wheat&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";     
