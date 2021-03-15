@@ -21,11 +21,11 @@ class WinterWheatLayer extends BasicLayer{
 
         $title = "Winter Wheat Development Forecast, " . $date->format("Y-m-d");
         
-        $legend_width = 286;#308;
-        $legend_height= 290;
+        $legend_width = 325;#308;
+        $legend_height= 275;
         
-        $legend_x_start = 1205;
-        $legend_y_start = 505;
+        $legend_x_start = 1170;
+        $legend_y_start = 522;
         
         $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&width=1500&height=800&srs=EPSG:3857&layers=gdd:winter_wheat&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";     
 
@@ -40,7 +40,7 @@ class WinterWheatLayer extends BasicLayer{
     protected function drawUSGSLogo($im){
         $usgs_logo = imagecreatefrompng($this->usda_logo_path);
         $usgs_logo_x_offset = 1405;
-        $usgs_logo_y_offset = 428;
+        $usgs_logo_y_offset = 445;
         $dst_usgs_logo_width = 93;
         $dst_usgs_logo_height = 93;
         $src_usgs_logo_width = 93;
@@ -54,7 +54,7 @@ class WinterWheatLayer extends BasicLayer{
     protected function drawUALogo($im){
         $ua_logo = imagecreatefrompng($this->ua_logo_path);
         $ua_logo_x_offset = 1335;
-        $ua_logo_y_offset = 448;
+        $ua_logo_y_offset = 465;
         $dst_ua_logo_width = 60;
         $dst_ua_logo_height = 55;
         $src_ua_logo_width = 60;
