@@ -18,7 +18,7 @@ class SpringIndexLeafReturnIntervalLayer extends ReturnIntervalLayer{
             }
             
             $legend_width = 200;
-            $legend_height= 368; //101
+            $legend_height= 372; //101
         
             $legend_x_start = 1275;
             $legend_y_start = 355; //610
