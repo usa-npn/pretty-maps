@@ -14,7 +14,7 @@ class SpringIndexBloomReturnIntervalLayer extends ReturnIntervalLayer{
                 $title = "Spring Bloom Index Return Interval, " . date('F j, Y');
             }else{
                 $output_path = "six-bloom-return-interval-" . $date->format("Y") . ".png";
-                $title = "Spring Bloom Index Return Interval, " . $date->format("Y");
+                $title = "Spring Bloom Index Return Interval, " . date('F j, Y'); //$date->format("Y");
             }
             
             $legend_width = 200;
