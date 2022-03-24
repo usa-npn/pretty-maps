@@ -8,7 +8,7 @@ class GypsyMothLayer extends PestLayer{
 	
 	
     public function __construct($long_forecast=false){
-        $title = "Gypsy Moth Forecast";
+        $title = "Spongy Moth Forecast";
         
         $legend_width = 350;
         $legend_height= 136;
@@ -16,7 +16,7 @@ class GypsyMothLayer extends PestLayer{
         $legend_x_start = 1145;
         $legend_y_start = 610;
         
-        $output_path = "gypsy-moth";        
+        $output_path = "spongy-moth";        
         $curl_url = "https://" . DOMAIN . "/v0/agdd/pestMap?species=Gypsy%20Moth&preserveExtent=true";
 
         
