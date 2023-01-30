@@ -22,7 +22,7 @@ class RedBromeFloweringLayer extends BasicLayer{
         $title = "Red Brome Flowering Forecast, " . $date->format("Y-m-d");
         
         $legend_width = 325;#308;
-        $legend_height= 275;
+        $legend_height= 117;
         
         $legend_x_start = 1170;
         $legend_y_start = 522;
