@@ -38,7 +38,7 @@ class RedBromeFloweringLayer extends BasicLayer{
     }
 
     protected function drawUSGSLogo($im){
-        $usgs_logo = imagecreatefrompng($this->usda_logo_path);
+        $usgs_logo = imagecreatefrompng($this->usgs_logo_path);
         $usgs_logo_x_offset = 1405;
         $usgs_logo_y_offset = 445;
         $dst_usgs_logo_width = 93;
