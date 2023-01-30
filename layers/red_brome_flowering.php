@@ -21,11 +21,11 @@ class RedBromeFloweringLayer extends BasicLayer{
 
         $title = "Red Brome Flowering Forecast, " . $date->format("Y-m-d");
         
-        $legend_width = 380;#308;
-        $legend_height= 134;
+        $legend_width = 370;#308;
+        $legend_height= 130;
         
-        $legend_x_start = 1150;
-        $legend_y_start = 522;
+        $legend_x_start = 1115;
+        $legend_y_start = 620;
         
         $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&width=1500&height=800&srs=EPSG:3857&layers=gdd:red_brome_flowering&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";     
 
