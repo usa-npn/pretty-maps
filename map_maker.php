@@ -152,6 +152,16 @@ class MapMaker{
 
         $this->generateMaps($arr);
     }
+
+    public function runDailyRedBrome(){
+        
+        $arr = array(
+            new RedBromeFloweringLayer(false),
+            new RedBromeFloweringLayer(true)
+        );
+
+        $this->generateMaps($arr);
+    }
     
     public function runWeeklyAnomaly(){
         $arr = array(
@@ -244,7 +254,7 @@ class MapMaker{
         $startDate = date("Y-m-d", strtotime("15 days ago"));
         $endDate = date("Y-m-d", strtotime("now"));
         // $sixDates = $this->getDatesFromRange('2019-01-01', '2019-03-01');
-        $sixDates = $this->getDatesFromRange($startDate, $endDate);
+        $sixDates = $this->getDatesFromRange('2022-01-01', $endDate);
         foreach($sixDates as $sixDate) {
             // array_push($layers, new SpringIndexLeafLayer(new DateTime($sixDate)));
             array_push($layers, new SpringIndexLeafAnomalyLayer(new DateTime($sixDate)));
