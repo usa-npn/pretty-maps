@@ -39,12 +39,12 @@ class RedBromeFloweringLayer extends BasicLayer{
 
     protected function drawUSGSLogo($im){
         $usgs_logo = imagecreatefrompng($this->usgs_logo_path);
-        $usgs_logo_x_offset = 1405;
-        $usgs_logo_y_offset = 445;
-        $dst_usgs_logo_width = 93;
-        $dst_usgs_logo_height = 93;
-        $src_usgs_logo_width = 93;
-        $src_usgs_logo_height = 93;
+        $usgs_logo_x_offset = 1325;
+        $usgs_logo_y_offset = 550;
+        $dst_usgs_logo_width = 150;
+        $dst_usgs_logo_height = 55;
+        $src_usgs_logo_width = 800;
+        $src_usgs_logo_height = 295;
         imagecopyresized($im, $usgs_logo, $usgs_logo_x_offset, 
                     $usgs_logo_y_offset, 0, 0, $dst_usgs_logo_width, $dst_usgs_logo_height, $src_usgs_logo_width, $src_usgs_logo_height);        
         imagedestroy($usgs_logo);
@@ -53,8 +53,8 @@ class RedBromeFloweringLayer extends BasicLayer{
         
     protected function drawUALogo($im){
         $ua_logo = imagecreatefrompng($this->ua_logo_path);
-        $ua_logo_x_offset = 1335;
-        $ua_logo_y_offset = 465;
+        $ua_logo_x_offset = 1265;
+        $ua_logo_y_offset = 549;
         $dst_ua_logo_width = 60;
         $dst_ua_logo_height = 55;
         $src_ua_logo_width = 60;
