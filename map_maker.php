@@ -158,8 +158,8 @@ class MapMaker{
         $arr = array(
             new RedBromeFloweringLayer(false),
             new RedBromeFloweringLayer(true),
-            new RedBromeSenescenceLayer(false),
-            new RedBromeSenescenceLayer(true)
+            new RedBromeSenscenceLayer(false),
+            new RedBromeSenscenceLayer(true)
         );
 
         $this->generateMaps($arr);
