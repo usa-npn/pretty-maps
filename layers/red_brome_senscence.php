@@ -3,7 +3,7 @@
 require_once('basic_layer.php');
 
 
-class RedBromeFloweringLayer extends BasicLayer{
+class RedBromeSenscenceLayer extends BasicLayer{
 	
 	
 	
@@ -12,28 +12,28 @@ class RedBromeFloweringLayer extends BasicLayer{
         $date = $today;
 
         if($long_forecast){
-            $output_path = "red-brome-flowering-six-day.png";
+            $output_path = "red-brome-senscence-six-day.png";
             $plus_six = $today->add(new DateInterval('P6D'));
             $date = $plus_six;
         }else{
-            $output_path = "red-brome-flowering-current-day.png";
+            $output_path = "red-brome-senscence-current-day.png";
         }
 
-        $title = "Red Brome Flowering Forecast, " . $date->format("Y-m-d");
+        $title = "Red Brome Senscence Forecast, " . $date->format("Y-m-d");
         
         $legend_width = 360;#308;
-        $legend_height= 127;
+        $legend_height= 93;
         
         $legend_x_start = 1135;
         $legend_y_start = 620;
         
-        $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&width=1500&height=800&srs=EPSG:3857&layers=gdd:red_brome_flowering&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";     
+        $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&width=1500&height=800&srs=EPSG:3857&layers=gdd:red_brome_senscence&time="  . $date->format("Y-m-d") . "&format=image/png&transparent=true";     
 
         
         parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url);
         $this->subtitle = "Base: 23°F, Start: Dec 10";
-        $this->legend_path = $this->base_legend_path . "legend-brome-flowering" . $this->extension;
-        $this->overlay_path = $this->base_overlay_path . "overlay-red-brome-flowering.png";   
+        $this->legend_path = $this->base_legend_path . "legend-brome-senscence" . $this->extension;
+        $this->overlay_path = $this->base_overlay_path . "overlay-red-brome-senscence.png";   
  
     }
 
