@@ -64,12 +64,12 @@ class RedBromeFloweringLayer extends BasicLayer{
         imagedestroy($ua_logo);
     }
 
-    // protected function drawSubTitleText($im) {
-    //     $title_x_start = 25;
-    //     $title_y_start = 723;
-    //     $subtitle_font_size = 16;
-    //     imagettftext($im, $subtitle_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->subtitle);       
-    // }
+    protected function drawSubTitleText($im) {
+        $title_x_start = 25;
+        $title_y_start = 723;
+        $subtitle_font_size = 16;
+        imagettftext($im, $subtitle_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->subtitle);       
+    }
 
     protected function drawNPNURL($im) {
         $url_x_start = 25;

@@ -31,7 +31,7 @@ class RedBromeSenscenceLayer extends BasicLayer{
 
         
         parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url);
-        $this->subtitle = "Base: 23°F, Start: Dec 10";
+        $this->subtitle = "Base: 32°F, Start: Jan 1";
         $this->legend_path = $this->base_legend_path . "legend-brome-senescence" . $this->extension;
         $this->overlay_path = $this->base_overlay_path . "overlay-red-brome-senescence.png";   
  
@@ -64,12 +64,12 @@ class RedBromeSenscenceLayer extends BasicLayer{
         imagedestroy($ua_logo);
     }
 
-    // protected function drawSubTitleText($im) {
-    //     $title_x_start = 25;
-    //     $title_y_start = 723;
-    //     $subtitle_font_size = 16;
-    //     imagettftext($im, $subtitle_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->subtitle);       
-    // }
+    protected function drawSubTitleText($im) {
+        $title_x_start = 25;
+        $title_y_start = 723;
+        $subtitle_font_size = 16;
+        imagettftext($im, $subtitle_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->subtitle);       
+    }
 
     protected function drawNPNURL($im) {
         $url_x_start = 25;
