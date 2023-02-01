@@ -92,6 +92,17 @@ class RedBromeFloweringLayer extends BasicLayer{
         imagettftext($im, $title_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->title);
     } 
 
-
+    protected function drawNPNLogo($im){
+        $npn_logo = imagecreatefrompng($this->npn_logo_path);
+        $npn_logo_x_offset = 25;
+        $npn_logo_y_offset = 580;
+        $dst_npn_logo_width = 322;//325;
+        $dst_npn_logo_height = 100;
+        $src_npn_logo_width = 322;//3000;
+        $src_npn_logo_height = 100;//914;
+    
+        imagecopyresized($im, $npn_logo, $npn_logo_x_offset, $npn_logo_y_offset, 0, 0, $dst_npn_logo_width, $dst_npn_logo_height, $src_npn_logo_width, $src_npn_logo_height);
+        imagedestroy($npn_logo);        
+        } 
 
 }
