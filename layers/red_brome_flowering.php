@@ -73,16 +73,25 @@ class RedBromeFloweringLayer extends BasicLayer{
 
     protected function drawNPNURL($im) {
         $url_x_start = 25;
-        $url_y_start = 750;
+        $url_y_start = 760;
         $url_font_size = 12;
         imagettftext($im, $url_font_size, 0, $url_x_start, $url_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->url_string);        
     }
 
     protected function drawGeneratedDateText($im){
         $generated_on_x_start = 25;
-        $generated_on_y_start = 737;
+        $generated_on_y_start = 743;
         $generated_on_font_size = 12;
         imagettftext($im, $generated_on_font_size, 0, $generated_on_x_start, $generated_on_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->generated_on_string);
-    }
+        }
+
+    protected function drawTitleText($im) {
+        $title_x_start = 25;
+        $title_y_start = 700;
+        $title_font_size = 18;
+        imagettftext($im, $title_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->title);
+    } 
+
+
 
 }
