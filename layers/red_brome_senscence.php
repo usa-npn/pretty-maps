@@ -73,16 +73,36 @@ class RedBromeSenscenceLayer extends BasicLayer{
 
     protected function drawNPNURL($im) {
         $url_x_start = 25;
-        $url_y_start = 750;
+        $url_y_start = 760;
         $url_font_size = 12;
         imagettftext($im, $url_font_size, 0, $url_x_start, $url_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->url_string);        
     }
 
     protected function drawGeneratedDateText($im){
         $generated_on_x_start = 25;
-        $generated_on_y_start = 737;
+        $generated_on_y_start = 743;
         $generated_on_font_size = 12;
         imagettftext($im, $generated_on_font_size, 0, $generated_on_x_start, $generated_on_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->generated_on_string);
-    }
+        }
+
+    protected function drawTitleText($im) {
+        $title_x_start = 25;
+        $title_y_start = 700;
+        $title_font_size = 18;
+        imagettftext($im, $title_font_size, 0, $title_x_start, $title_y_start, imagecolorallocate($im, 0, 0, 0), $this->font, $this->title);
+    } 
+
+    protected function drawNPNLogo($im){
+        $npn_logo = imagecreatefrompng($this->npn_logo_path);
+        $npn_logo_x_offset = 25;
+        $npn_logo_y_offset = 580;
+        $dst_npn_logo_width = 322;//325;
+        $dst_npn_logo_height = 100;
+        $src_npn_logo_width = 322;//3000;
+        $src_npn_logo_height = 100;//914;
+    
+        imagecopyresized($im, $npn_logo, $npn_logo_x_offset, $npn_logo_y_offset, 0, 0, $dst_npn_logo_width, $dst_npn_logo_height, $src_npn_logo_width, $src_npn_logo_height);
+        imagedestroy($npn_logo);        
+        }
 
 }
