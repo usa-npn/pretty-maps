@@ -8,11 +8,11 @@ class EmeraldAshBorerAdultLayer extends BasicLayer{
     public function __construct($long_forecast=false){
         $title = "Emerald Ash Borer Adult Forecast";
         
-        $legend_width = 350;
-        $legend_height= 407;
+        $legend_width = 300;
+        $legend_height= 349;
         
         $legend_x_start = 1145;
-        $legend_y_start = 610;
+        $legend_y_start = 510;
         
         $output_path = "eab_adult.png";        
         $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=gdd:eab_adult&width=1500&height=800&ENV=doy:".(date('z')+1)."&time="  . date_format(new DateTime(), "Y-m-d") . "&format=image/png&transparent=true";
