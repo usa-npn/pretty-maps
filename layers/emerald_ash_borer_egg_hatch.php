@@ -3,10 +3,10 @@
 require_once('basic_layer.php');
 
 
-class EmeraldAshBorerAdultLayer extends BasicLayer{
+class EmeraldAshBorerEggHatchLayer extends BasicLayer{
 	
     public function __construct($long_forecast=false){
-        $title = "Emerald Ash Borer Adult Forecast";
+        $title = "Emerald Ash Borer Egg Hatch Forecast";
         
         $legend_width = 260;
         $legend_height= 303;
@@ -14,8 +14,8 @@ class EmeraldAshBorerAdultLayer extends BasicLayer{
         $legend_x_start = 1230;
         $legend_y_start = 490;
         
-        $output_path = "eab_adult.png";        
-        $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=gdd:eab_adult&width=1500&height=800&ENV=doy:".(date('z')+1)."&time="  . date_format(new DateTime(), "Y-m-d") . "&format=image/png&transparent=true";
+        $output_path = "eab_egg_hatch.png";        
+        $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=gdd:eab_egg_hatch&width=1500&height=800&ENV=doy:".(date('z')+1)."&time="  . date_format(new DateTime(), "Y-m-d") . "&format=image/png&transparent=true";
 
         parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url);
         $this->subtitle = "";//"Base: 50°F, Start: Jan 1";
