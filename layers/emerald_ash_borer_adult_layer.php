@@ -29,12 +29,12 @@ class EmeraldAshBorerAdultLayer extends BasicLayer{
 
     protected function drawOSULogo($im){
         $osu_logo = imagecreatefrompng($this->osu_logo_path);
-        $osu_logo_x_offset = 1325;
+        $osu_logo_x_offset = 1375;
         $osu_logo_y_offset = 430;
         $dst_osu_logo_width = 150;
         $dst_osu_logo_height = 55;
-        $src_osu_logo_width = 800;
-        $src_osu_logo_height = 295;
+        $src_osu_logo_width = 2653;
+        $src_osu_logo_height = 2793;
         imagecopyresized($im, $osu_logo, $osu_logo_x_offset, 
                     $osu_logo_y_offset, 0, 0, $dst_osu_logo_width, $dst_osu_logo_height, $src_osu_logo_width, $src_osu_logo_height);        
         imagedestroy($osu_logo);
@@ -47,8 +47,8 @@ class EmeraldAshBorerAdultLayer extends BasicLayer{
         $usdanifa_logo_y_offset = 430;
         $dst_usdanifa_logo_width = 150;
         $dst_usdanifa_logo_height = 55;
-        $src_usdanifa_logo_width = 800;
-        $src_usdanifa_logo_height = 295;
+        $src_usdanifa_logo_width = 400;
+        $src_usdanifa_logo_height = 400;
         imagecopyresized($im, $usdanifa_logo, $usdanifa_logo_x_offset, 
                     $usdanifa_logo_y_offset, 0, 0, $dst_usdanifa_logo_width, $dst_usdanifa_logo_height, $src_usdanifa_logo_width, $src_usdanifa_logo_height);        
         imagedestroy($usdanifa_logo);
