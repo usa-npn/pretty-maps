@@ -18,7 +18,7 @@ class EmeraldAshBorerEggHatchLayer extends BasicLayer{
         $curl_url = "http://geoserver.usanpn.org/geoserver/wms?service=WMS&request=GetMap&bbox=-14000000,2700000,-7000000,6450000&srs=EPSG:3857&layers=gdd:eab_egg_hatch&width=1500&height=800&ENV=doy:".(date('z')+1)."&time="  . date_format(new DateTime(), "Y-m-d") . "&format=image/png&transparent=true";
 
         parent::__construct($title, $legend_width, $legend_height, $legend_x_start, $legend_y_start, $output_path, $curl_url, 1500, 800, 37, 0, "assets/background", "Based on PRISM and NMME Products", false);
-        $this->subtitle = "830 growing degree days (F), lower threshold: 54F, upper threshold: 97F, start date: Jan 1";//"Base: 50°F, Start: Jan 1";
+        $this->subtitle = "Threshold: 830 GDD(F), Base: 54F, Start: Jan 1";
         $this->legend_path = $this->base_legend_path . "legend-eab-adult" . $this->extension;
         $this->overlay_path = $this->base_overlay_path . "overlay-eab-adult.png";   
  
