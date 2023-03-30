@@ -75,7 +75,11 @@ class BasicLayer extends AbstractLayer{
 
         $this->drawUSGSLogo($im);
         
-         $this->drawUALogo($im);
+        $this->drawUALogo($im);
+
+        $this->drawUSDANIFALogo($im);
+        
+        $this->drawOSULogo($im);
 
         imagepng ($im, OUTPUT_PATH . $this->output_path, 9);
 
@@ -84,6 +88,12 @@ class BasicLayer extends AbstractLayer{
         $this->postProcess($im);
         imagedestroy($im);
    
+    }
+
+    protected function drawOSULogo($im){
+    }
+
+    protected function drawUSDANIFALogo($im){
     }
     
     protected function drawUSGSLogo($im){

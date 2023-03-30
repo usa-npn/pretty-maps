@@ -39,6 +39,8 @@ abstract class AbstractLayer{
         protected $usgs_logo_path;
         protected $ua_logo_path;
         protected $usda_logo_path;
+        protected $usda_nifa_logo_path;
+        protected $osu_logo_path;
 	
 	protected $legend_path;
 	protected $legend_width;
@@ -88,6 +90,8 @@ abstract class AbstractLayer{
                 $this->usgs_logo_path = $this->base_image_path . "assets/usgs-logo" . $this->extension;
                 $this->ua_logo_path = $this->base_image_path . "assets/ua-logo-sm" . $this->extension;
                 $this->usda_logo_path = $this->base_image_path . "assets/usda-logo" . $this->extension;
+                $this->usda_nifa_logo_path = $this->base_image_path . "assets/usda-nifa-logo" . $this->extension;
+                $this->osu_logo_path = $this->base_image_path . "assets/osu-logo" . $this->extension;
                 // $this->background_path  = $this->base_image_path . "assets/arizona-background" . $this->extension;
                 $this->background_path  = $this->base_image_path . $background_path . $this->extension;
 
@@ -116,6 +120,10 @@ abstract class AbstractLayer{
         protected abstract function drawUALogo($im);
         
         protected abstract function drawNPNLogo($im);
+
+        protected abstract function drawOSULogo($im);
+
+        protected abstract function drawUSDANIFALogo($im);
         
         protected abstract function drawGeneratedDateText($im);
         
