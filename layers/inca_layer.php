@@ -92,6 +92,12 @@ class IncaLayer extends AbstractLayer{
         imagedestroy($im);
    
     }
+
+    protected function drawOSULogo($im){
+    }
+
+    protected function drawUSDANIFALogo($im){
+    }
     
     protected function drawUSGSLogo($im){
 	$usgs_logo = imagecreatefrompng($this->usgs_logo_path);
