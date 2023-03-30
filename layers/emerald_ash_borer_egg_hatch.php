@@ -29,36 +29,36 @@ class EmeraldAshBorerEggHatchLayer extends BasicLayer{
 
     protected function drawOSULogo($im){
         $osu_logo = imagecreatefrompng($this->osu_logo_path);
-        $osu_logo_x_offset = 1325;
-        $osu_logo_y_offset = 430;
-        $dst_osu_logo_width = 150;
-        $dst_osu_logo_height = 55;
-        $src_osu_logo_width = 800;
-        $src_osu_logo_height = 295;
-        imagecopyresized($im, $osu_logo, $osu_logo_x_offset, 
-                    $osu_logo_y_offset, 0, 0, $dst_osu_logo_width, $dst_osu_logo_height, $src_osu_logo_width, $src_osu_logo_height);        
+        $osu_logo_x_offset = 1395;
+        $osu_logo_y_offset = 400;
+        $dst_osu_logo_width = 85;
+        $dst_osu_logo_height = 90;
+        $src_osu_logo_width = 85;
+        $src_osu_logo_height = 90;
+        imagecopyresized($im, $osu_logo, $osu_logo_x_offset,
+                    $osu_logo_y_offset, 0, 0, $dst_osu_logo_width, $dst_osu_logo_height, $src_osu_logo_width, $src_osu_logo_height);
         imagedestroy($osu_logo);
-    
+
     }
 
     protected function drawUSDANIFALogo($im){
         $usdanifa_logo = imagecreatefrompng($this->usda_nifa_logo_path);
-        $usdanifa_logo_x_offset = 1325;
-        $usdanifa_logo_y_offset = 430;
-        $dst_usdanifa_logo_width = 150;
+        $usdanifa_logo_x_offset = 1335;
+        $usdanifa_logo_y_offset = 410;
+        $dst_usdanifa_logo_width = 55;
         $dst_usdanifa_logo_height = 55;
-        $src_usdanifa_logo_width = 800;
-        $src_usdanifa_logo_height = 295;
-        imagecopyresized($im, $usdanifa_logo, $usdanifa_logo_x_offset, 
-                    $usdanifa_logo_y_offset, 0, 0, $dst_usdanifa_logo_width, $dst_usdanifa_logo_height, $src_usdanifa_logo_width, $src_usdanifa_logo_height);        
+        $src_usdanifa_logo_width = 55;
+        $src_usdanifa_logo_height = 55;
+        imagecopyresized($im, $usdanifa_logo, $usdanifa_logo_x_offset,
+                    $usdanifa_logo_y_offset, 0, 0, $dst_usdanifa_logo_width, $dst_usdanifa_logo_height, $src_usdanifa_logo_width, $src_usdanifa_logo_height);
         imagedestroy($usdanifa_logo);
-    
+
     }
-        
+
     protected function drawUALogo($im){
         $ua_logo = imagecreatefrompng($this->ua_logo_path);
         $ua_logo_x_offset = 1265;
-        $ua_logo_y_offset = 430;
+        $ua_logo_y_offset = 410;
         $dst_ua_logo_width = 60;
         $dst_ua_logo_height = 55;
         $src_ua_logo_width = 60;
