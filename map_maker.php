@@ -62,11 +62,19 @@ class MapMaker{
                 new SpringIndexBloomLayer(),
                 new SpringIndexLeafAnomalyLayer(),
                 new SliderLayer(),
-		        new SpringIndexBloomAnomalyLayer(),
+		new SpringIndexBloomAnomalyLayer(),
             );
 
             $this->generateMaps($arr);
             
+    }
+
+    public function runDailySixLateBloom(){
+	    $arr = array(
+		new SpringIndexLateBloomLayer(),
+	    );
+
+	    $this->generateMaps($arr);
     }
 
     public function runDailySixReturnInterval(){
@@ -104,6 +112,14 @@ class MapMaker{
 
     //     $this->generateMaps($arr);
     // }
+    //
+    public function runALBv2() {
+	    $arr = array(new AsianLonghornedBeetleLayerV2(),
+		    new AsianLonghornedBeetleLayerV2(true)
+	    );
+
+	    $this->generateMaps($arr);
+    }
     
     public function runDailyPestMaps(){
         
@@ -116,16 +132,16 @@ class MapMaker{
                 
             new AppleMaggotLayer(),
             new AppleMaggotLayer(true),
-            new AsianLonghornedBeetleLayer(),
-            new AsianLonghornedBeetleLayer(true),
+            //new AsianLonghornedBeetleLayer(),
+            //new AsianLonghornedBeetleLayer(true),
             new BagwormLayer(),
             new BagwormLayer(true),
             new BronzeBirchBorerLayer(),
             new BronzeBirchBorerLayer(true),
             new EasternTentCaterpillarLayer(),
-            new EasternTentCaterpillarLayer(true),
-            new EmeraldAshBorerLayer(),
-            new EmeraldAshBorerLayer(true), 
+	    new EasternTentCaterpillarLayer(true),
+            //new EmeraldAshBorerLayer(),
+            //new EmeraldAshBorerLayer(true), 
             new GypsyMothLayer(),
             new GypsyMothLayer(true),   
             new HwaLayer(),
@@ -137,7 +153,7 @@ class MapMaker{
             new PineNeedleScaleLayer(),
             new PineNeedleScaleLayer(true),
             new WinterMothLayer(),
-            new WinterMothLayer(true)
+	    new WinterMothLayer(true)
         );
 
         $this->generateMaps($arr);
@@ -160,6 +176,26 @@ class MapMaker{
             new RedBromeFloweringLayer(true),
             new RedBromeSenscenceLayer(false),
             new RedBromeSenscenceLayer(true)
+        );
+
+        $this->generateMaps($arr);
+    }
+
+     public function runDailyEAB(){
+
+        $arr = array(
+            new EmeraldAshBorerAdultLayer(false),
+            new EmeraldAshBorerEggHatchLayer(false),
+        );
+
+        $this->generateMaps($arr);
+    }
+
+    public function runDailySLF(){
+
+        $arr = array(
+            new SpottedLanternFlyAdultLayer(false),
+            new SpottedLanternFlyEggHatchLayer(false),
         );
 
         $this->generateMaps($arr);
@@ -248,7 +284,7 @@ class MapMaker{
         $previousWeekImage = OUTPUT_PATH . "buffelgrass-" . date("Y-m-d", strtotime("7 days ago")) . ".png";
         copy($currentDayImage, OUTPUT_PATH . "current-day-forecast-buffelgrass.png");
         copy($previousWeekImage, OUTPUT_PATH . "previous-week-forecast-buffelgrass.png");
-        exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'buffelgrass-' . $current_year . '*.png ' . OUTPUT_PATH . 'buffelgrass.gif');
+        //exec('convert -limit memory 256MiB -delay 25 -loop 0 -layers optimize ' . OUTPUT_PATH . 'buffelgrass-' . $current_year . '*.png ' . OUTPUT_PATH . 'buffelgrass.gif');
     }
 
     public function runDailySixAnomalyAnimation() {
@@ -256,7 +292,7 @@ class MapMaker{
         $startDate = date("Y-m-d", strtotime("15 days ago"));
         $endDate = date("Y-m-d", strtotime("now"));
         // $sixDates = $this->getDatesFromRange('2019-01-01', '2019-03-01');
-        $sixDates = $this->getDatesFromRange('2022-01-01', $endDate);
+        $sixDates = $this->getDatesFromRange('2025-01-01', $endDate);
         foreach($sixDates as $sixDate) {
             // array_push($layers, new SpringIndexLeafLayer(new DateTime($sixDate)));
             array_push($layers, new SpringIndexLeafAnomalyLayer(new DateTime($sixDate)));

@@ -19,6 +19,7 @@ if(date('D', time()) === 'Mon'){
     $maker->runWeeklyAnomaly();
 }
 
+
 $maker->runDailyAgdd();
 
 $maker->runDailySix();
@@ -26,11 +27,19 @@ $maker->runDailySix();
 $maker->runDailySixAnomalyAnimation();
 
 $maker->runDailyBuffelgrassAnimation();
+ 
+$maker->runALBv2();
 
 $maker->runDailyPestMaps();
-
+ 
 $maker->runDailyWinterWheat();
+ 
+$maker->runDailySixReturnInterval();
+ 
+$maker->runDailyEAB();
 
-//$maker->runDailySixReturnInterval();
-
-
+$maker->runDailyRedBrome();
+ 
+$maker->runDailySLF();
+ 
+//$maker->runDailySixLateBloom();
