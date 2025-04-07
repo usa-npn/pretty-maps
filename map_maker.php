@@ -200,6 +200,16 @@ class MapMaker{
 
         $this->generateMaps($arr);
     }
+
+    public function runDailyJPB(){
+
+        $arr = array(
+            new JapaneseBeetleAdultLayer(false),
+            new JapaneseBeetleEggHatchLayer(false),
+        );
+
+        $this->generateMaps($arr);
+    }
     
     public function runWeeklyAnomaly(){
         $arr = array(

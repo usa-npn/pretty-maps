@@ -41,5 +41,7 @@ $maker->runDailyEAB();
 $maker->runDailyRedBrome();
  
 $maker->runDailySLF();
+
+$maker->runDailyJPB();
  
 //$maker->runDailySixLateBloom();
